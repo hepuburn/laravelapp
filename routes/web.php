@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-Route::get('hello', 'HelloController@index');
+// パスが足りない
+// Route::get('hello', 'HelloController@index'); 
+Route::get('/hello','App\Http\Controllers\HelloController@index');
