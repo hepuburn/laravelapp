@@ -8,19 +8,23 @@
    </style>
 </head>
 <body>
-   <h1>Blade/Index</h1>
-   <p>&#064;whileディレクティブの例</p>
-   <ol>
-   @php
-   $counter = 0;
-   @endphp
-   @while ($counter < count($data))
-   <li>{{$data[$counter]}}</li>
-   @php
-   $counter++;
-   @endphp
-   @endwhile
-   </ol>
+@extends('layouts.helloapp')
+
+@section('title', 'Index')
+
+@section('menubar')
+   @parent
+   インデックスページ
+@endsection
+
+@section('content')
+   <p>ここが本文のコンテンツです。</p>
+   <p>必要なだけ記述できます。</p>
+@endsection
+
+@section('footer')
+copyright 2020 tuyano.
+@endsection
 </body>
 
 
