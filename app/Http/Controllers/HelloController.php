@@ -40,17 +40,26 @@ class HelloController extends Controller
       return redirect('/hello');
    }
 
-public function update(Request $request)
-{
-   $param = [
-       'id' => $request->id,
-       'name' => $request->name,
-       'mail' => $request->mail,
-       'age' => $request->age,
-   ];
-   DB::update('update people set name =:name, mail = :mail, age = :age where id = :id', $param);
-   return redirect('/hello');
-}
+   public function edit(Request $request)
+   {
+      $item = DB::table('people')
+          ->where('id', $request->id)->first();
+      return view('hello.edit', ['form' => $item]);
+   }
+   
+   public function update(Request $request)
+   {
+      $param = [
+          'name' => $request->name,
+          'mail' => $request->mail,
+          'age' => $request->age,
+      ];
+      DB::table('people')
+          ->where('id', $request->id)
+          ->update($param);
+      return redirect('/hello');
+   }
+   
 public function del(Request $request)
 {
    $param = ['id' => $request->id];
