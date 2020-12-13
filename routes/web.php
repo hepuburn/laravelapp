@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\HelloMiddleware;
+use App\Http\Controllers\PersonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,5 @@ Route::post('hello/del', 'App\Http\Controllers\HelloController@remove');
 Route::get('hello/show', 'App\Http\Controllers\HelloController@show');
 
 
+
+Route::get('person', 'App\Http\Controllers\PersonController@index');
